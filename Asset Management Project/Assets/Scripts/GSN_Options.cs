@@ -11,11 +11,14 @@ public class GSN_Options : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
-   
 
-  
 
-  
+    void Start()
+    {
+        pauseMenuUI.SetActive(false);
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +48,16 @@ public class GSN_Options : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+    }
+
+    public void LoadMenu()
+    {
+        Debug.Log("Loading menu...");
+    }
+
+    public void QuitGame ()
+    {
+        Debug.Log("Quitting game...");
     }
 
 }

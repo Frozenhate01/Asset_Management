@@ -10,7 +10,7 @@ public class GSN_AudioManager : MonoBehaviour
 
     public Sound[] SFX;
 
-    private void Awake()
+ /*   private void Awake()
     {
         if (instance != null)
         {
@@ -29,7 +29,7 @@ public class GSN_AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
     }
-
+ 
     private void Start()
     {
         Play("main menu place holder for music");
@@ -47,5 +47,11 @@ public class GSN_AudioManager : MonoBehaviour
         }
 
         s.source.volume = s.volume * (1f + UnityEngine.Random(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        s.source.pitch = s.volume * (1f + UnityEngine.Random(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+
+       
+
+        s.source.Play();
     }
+    */
 }
