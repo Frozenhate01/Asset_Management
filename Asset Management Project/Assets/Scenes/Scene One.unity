@@ -2130,6 +2130,7 @@ GameObject:
   - component: {fileID: 2027310886}
   - component: {fileID: 2027310888}
   - component: {fileID: 2027310889}
+  - component: {fileID: 2027310890}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -2188,6 +2189,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 337299588}
+--- !u!114 &2027310890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027310885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278c06787ccf37645a6450ba172b893d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 0}
+  resolutionDropdown: {fileID: 0}
 --- !u!1 &2109769305
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,7 +2214,7 @@ GameObject:
   - component: {fileID: 2109769306}
   - component: {fileID: 2109769307}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: Audio_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
