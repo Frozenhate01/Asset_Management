@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GSN_GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameOverScreen GameOverScreen;
+    public float points;
+
+    public void GameOver()
     {
-        
+        GameOverScreen.Setup(points);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Restart()
     {
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
