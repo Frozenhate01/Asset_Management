@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Audio;
 
 public class GSN_AudioManager : MonoBehaviour
@@ -7,71 +8,50 @@ public class GSN_AudioManager : MonoBehaviour
     
     public static GSN_AudioManager instance;
 
-    public Sound[] soundEffects;
+    public Sound[] SFX;
 
-    public AudioSource audioSource;
-    public AudioClip hoverFx;
-    public AudioClip clickFx;
-
-  
-       private void Awake()
-       {
-
-           if (instance != null)
-           {
-               Destroy(gameObject);
-           }
-           else
-           {
-               instance = this;
-               DontDestroyOnLoad(gameObject);
-           }
-
-           foreach (Sound s in soundEffects)
-           {
-               s.source = gameObject.AddComponent<AudioSource>();
-               s.source.clip = s.clip;
-               s.source.loop = s.loop;
-
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-           }
-       }
-
-       private void Start()
-       {
-           Play("main menu place holder for music");
-       }
-
-       public void HoverSound()
+ /*   private void Awake()
+    {
+        if (instance != null)
         {
-        audioSource.PlayOneShot(hoverFx);
+            Destroy(gameObject);
         }
-        
-        public void CLickSOund()
+        else
         {
-        audioSource.PlayOneShot(clickFx);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        
-       public void Play (string sound)
-       {
-           Sound s = Array.Find(soundEffects, item => item.name == sound);
 
-           if ( s == null)
-           {
-               Debug.LogWarning("Sound: " + name + " not found!");
-               return;
+        foreach (Sound s in SFX)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.loop = s.loop;
+        }
+    }
+ 
+    private void Start()
+    {
+        Play("main menu place holder for music");
+    }
 
-           }
+    public void Play (string sound)
+    {
+        Sound s = ArrayList.Find(sounds, item => item.name == sound);
 
-          // s.source.volume = s.volume * (1f + UnityEngine.Random(-s.volumeVariance / 2f, s.volumeVariance / 2f));
-           //s.source.pitch = s.volume * (1f + UnityEngine.Random(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        if ( s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
 
+        }
 
-
-           s.source.Play();
-       }
-
+        s.source.volume = s.volume * (1f + UnityEngine.Random(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        s.source.pitch = s.volume * (1f + UnityEngine.Random(-s.volumeVariance / 2f, s.volumeVariance / 2f));
 
        
+
+        s.source.Play();
+    }
+    */
 }
