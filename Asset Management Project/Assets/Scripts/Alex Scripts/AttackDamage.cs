@@ -24,11 +24,11 @@ public class AttackDamage : MonoBehaviour
     {
         if(playerAttack.leftFacing == true)
         {
-            projectileRb.AddForce(projectileRb.transform.forward * speed * -1);
+            projectileRb.AddForce(projectileRb.transform.right * speed * -1, ForceMode.Impulse);
         }
         if(playerAttack.rightFacing == true)
         {
-            projectileRb.AddForce(projectileRb.transform.forward * speed);
+            projectileRb.AddForce(projectileRb.transform.right * speed, ForceMode.Impulse);
         }
         Destroy(gameObject, lifespan);
     }
