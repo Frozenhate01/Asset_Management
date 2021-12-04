@@ -36,10 +36,7 @@ public class BasicEnemy : MonoBehaviour
     public int specialDamage; // the damage value for special attacks like the Orc smash
     public float enemyMaxHealth; // the enemy's max health that is called in their health script
 
-    protected Animator anim;
     protected bool attackAnimCD;
-    protected static string IdleController = "Idle";
-    protected static string AttackController = "Attack";
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -54,7 +51,6 @@ public class BasicEnemy : MonoBehaviour
         InvokeRepeating("AttackCooldown", 1f, 1f);
 
         aiAgent.autoBraking = false;
-        anim = GetComponent<Animator>();
 
         switch (myStates)
         {
@@ -164,9 +160,6 @@ public class BasicEnemy : MonoBehaviour
             Shuffle(navWaypoints);
             pzSet = true;
         }
-
-        anim.SetBool(IdleController, idling());
-        anim.SetBool(AttackController, AttackAnim());
     }
 
     public virtual void OnTriggerEnter(Collider other)
