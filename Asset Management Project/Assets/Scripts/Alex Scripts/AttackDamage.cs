@@ -11,6 +11,7 @@ public class AttackDamage : MonoBehaviour
     public int damage;
     static int PlayerLayer = 11;
     static int EnemyLayer = 13;
+    private bool hasDamaged;
 
     // Start is called before the first frame update
 
@@ -24,11 +25,11 @@ public class AttackDamage : MonoBehaviour
     {
         if(playerAttack.leftFacing == true)
         {
-            projectileRb.AddForce(projectileRb.transform.forward * speed * -1);
+            projectileRb.AddForce(projectileRb.transform.right * speed * -1, ForceMode.Impulse);
         }
         if(playerAttack.rightFacing == true)
         {
-            projectileRb.AddForce(projectileRb.transform.forward * speed);
+            projectileRb.AddForce(projectileRb.transform.right * speed, ForceMode.Impulse);
         }
         Destroy(gameObject, lifespan);
     }
@@ -49,9 +50,17 @@ public class AttackDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-        if (enemy)
-            enemy.TakeDamage(damage);
+
+        if(other.gameObject.layer == EnemyLayer)
+        {
+            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+            if (enemy && hasDamaged == false)
+            {
+                hasDamaged = true;
+                enemy.TakeDamage(damage);
+                Destroy(gameObject);
+            }
+        }
     }
 
 }

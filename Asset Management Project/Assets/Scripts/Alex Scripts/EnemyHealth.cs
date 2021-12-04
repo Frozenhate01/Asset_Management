@@ -28,11 +28,13 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth - damage <= 0)
         {
             currentHealth -= damage;
+            Debug.Log("Dead!");
             Destroy(gameObject);
         }
         else
         {
             currentHealth -= damage;
+            Debug.Log("Took damage!");
         }
     }
 }

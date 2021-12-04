@@ -105,4 +105,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f252f8eb17ca574dab7b429583dbce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightFacing: 0
+  leftFacing: 0
   player: {fileID: 0}
+  leftSpawner: {fileID: 733800847909079819}
+  rightSpawner: {fileID: 733800848596817453}
+  rangedAttack: {fileID: 5282194132035810603, guid: 3be622f9edc213647a724031e1f2c912,
+    type: 3}
+  meleeAttack: {fileID: 914868787190943736, guid: f1ce0b30a76d16b48ab62b3046383029,
+    type: 3}

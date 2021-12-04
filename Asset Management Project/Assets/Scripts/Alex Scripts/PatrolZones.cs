@@ -33,16 +33,21 @@ public class PatrolZones : MonoBehaviour
         {
             waypoints.Add(other.gameObject);
         }
-
-
-
     }
 
-    public void OnTriggerExit(Collider other)
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == playerLayer)
+        {
+            Target = collision.gameObject;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
     {
 
         // When an object of the player layer leaves the zone, the target is set to null
-        if (other.gameObject.layer == playerLayer)
+        if (collision.gameObject.layer == playerLayer)
         {
             Target = null;
         }
