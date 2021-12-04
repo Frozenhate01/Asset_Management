@@ -11,6 +11,7 @@ public class AttackDamage : MonoBehaviour
     public int damage;
     static int PlayerLayer = 11;
     static int EnemyLayer = 13;
+    private bool hasDamaged;
 
     // Start is called before the first frame update
 
@@ -49,9 +50,17 @@ public class AttackDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-        if (enemy)
-            enemy.TakeDamage(damage);
+
+        if(other.gameObject.layer == EnemyLayer)
+        {
+            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+            if (enemy && hasDamaged == false)
+            {
+                hasDamaged = true;
+                enemy.TakeDamage(damage);
+                Destroy(gameObject);
+            }
+        }
     }
 
 }

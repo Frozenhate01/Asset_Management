@@ -29,10 +29,10 @@ public class BasicEnemy : MonoBehaviour
     public int attackDelay; // the value set in the inspector.
     protected int attackCD; // the value set in the code, based off of attackDelay. This number is decremented automatically after attacking.
     public bool attacking;
-    protected bool canAttack;
+    public bool canAttack;
     protected int playerLayer = 11;
     public int rotateAmount; //the speed that the enemy will rotate with to face the player
-    public int enemyDamage; // the damage value for all the normal enemy attacks
+    public float enemyDamage; // the damage value for all the normal enemy attacks
     public int specialDamage; // the damage value for special attacks like the Orc smash
     public int enemyMaxHealth; // the enemy's max health that is called in their health script
 

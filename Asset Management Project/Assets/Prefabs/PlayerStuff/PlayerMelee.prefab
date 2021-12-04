@@ -124,6 +124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAttack: {fileID: 0}
-  lifespan: 0.5
+  lifespan: 0.2
   speed: 0
   damage: 3

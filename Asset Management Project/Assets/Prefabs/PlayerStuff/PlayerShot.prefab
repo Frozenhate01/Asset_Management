@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAttack: {fileID: 0}
   lifespan: 3
-  speed: 5
+  speed: 3
   damage: 2
 --- !u!135 &7362858849309646379
 SphereCollider:
