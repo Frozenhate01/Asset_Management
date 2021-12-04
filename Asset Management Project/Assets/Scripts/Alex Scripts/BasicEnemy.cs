@@ -34,7 +34,7 @@ public class BasicEnemy : MonoBehaviour
     public int rotateAmount; //the speed that the enemy will rotate with to face the player
     public int enemyDamage; // the damage value for all the normal enemy attacks
     public int specialDamage; // the damage value for special attacks like the Orc smash
-    public float enemyMaxHealth; // the enemy's max health that is called in their health script
+    public int enemyMaxHealth; // the enemy's max health that is called in their health script
 
     protected bool attackAnimCD;
 

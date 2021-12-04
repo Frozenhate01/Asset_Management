@@ -11,35 +11,50 @@ public class PlayerAttack : MonoBehaviour
     int attackDelay;
     float rangedAttackCD;
     float rangedAttackDelay;
-    private bool rightFacing;
-    private bool leftFacing;
+    public bool rightFacing;
+    public bool leftFacing;
+    public GameObject player;
+    public GameObject leftSpawner;
+    public GameObject rightSpawner;
+    public GameObject rangedAttack;
+    public GameObject meleeAttack;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        transform.position = player.transform.position;
         transform.localRotation.Set(0, 0, 0, 0);
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
+            if (rightFacing == true)
+            {
+                GameObject PlayerShot = Instantiate(rangedAttack, rightSpawner.transform.position, gameObject.transform.rotation) as GameObject;
+            }
 
+            if (leftFacing == true)
+            {
+                GameObject PlayerShot = Instantiate(rangedAttack, leftSpawner.transform.position, gameObject.transform.rotation) as GameObject;
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.E))
         {
-            if(rightFacing == true)
+            if (rightFacing == true)
             {
-
+                GameObject PlayerHit = Instantiate(meleeAttack, rightSpawner.transform.position, gameObject.transform.rotation) as GameObject;
             }
 
-            if(leftFacing == true)
+            if (leftFacing == true)
             {
-
+                GameObject PlayerHit = Instantiate(meleeAttack, leftSpawner.transform.position, gameObject.transform.rotation) as GameObject;
             }
         }
 
