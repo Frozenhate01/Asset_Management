@@ -127,3 +127,4 @@ MonoBehaviour:
   lifespan: 0.2
   speed: 0
   damage: 3
+  isMelee: 1
