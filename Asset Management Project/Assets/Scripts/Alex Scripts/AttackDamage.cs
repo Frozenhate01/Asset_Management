@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackDamage : MonoBehaviour
 {
     public PlayerAttack playerAttack;
+    private HealthBar playerHealth;
     private Rigidbody projectileRb;
     public float lifespan;
     public float speed = 5.0f;
@@ -12,6 +13,7 @@ public class AttackDamage : MonoBehaviour
     static int PlayerLayer = 11;
     static int EnemyLayer = 13;
     private bool hasDamaged;
+    public bool isMelee;
 
     // Start is called before the first frame update
 
@@ -57,6 +59,11 @@ public class AttackDamage : MonoBehaviour
             if (enemy && hasDamaged == false)
             {
                 hasDamaged = true;
+                if (enemy.currentHealth - damage <= 0 && isMelee)
+                {
+                    playerHealth = GameObject.Find("PlayerHealth").GetComponent<HealthBar>();
+                    playerHealth.LoseHealth(-25);
+                }
                 enemy.TakeDamage(damage);
                 Destroy(gameObject);
             }
