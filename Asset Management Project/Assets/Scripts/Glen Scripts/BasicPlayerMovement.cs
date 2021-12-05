@@ -5,11 +5,14 @@ using UnityEngine;
 public class BasicPlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float jumpVelocity;
+    [SerializeField] private LayerMask layerMask;
+
     private Rigidbody2D body;
 
     private void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+        body = transform.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -17,6 +20,6 @@ public class BasicPlayerMovement : MonoBehaviour
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
         if (Input.GetKey(KeyCode.Space))
-            body.velocity = new Vector2(body.velocity.x, speed);
+            body.velocity = new Vector2(body.velocity.x, jumpVelocity);
     }
 }
