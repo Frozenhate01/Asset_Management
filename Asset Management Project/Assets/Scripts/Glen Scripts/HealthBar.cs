@@ -7,6 +7,7 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField] Image fillBar;
     [SerializeField] float health;
+    [SerializeField] int livesRemaining;
 
     public void LoseHealth(float value)
     {
@@ -21,13 +22,23 @@ public class HealthBar : MonoBehaviour
         {
             Debug.Log("DEAD");
             FindObjectOfType<LifeCount>().LoseLife();
+            livesRemaining--;
             
         }
+    }
+
+    public void RevivePlayer()
+    {
+        health = 100;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
             LoseHealth(25);
+        if (health == 0 && livesRemaining > 0)
+        {
+            RevivePlayer();
+        }
     }
 }

@@ -10,7 +10,8 @@ public class KillPlayer : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
             collision.transform.position = spawnPoint.position;
-            FindObjectOfType<LifeCount>().LoseLife();
+            FindObjectOfType<LifeCount>().LoseLife(); 
+            FindObjectOfType<HealthBar>().RevivePlayer();
     }
 
 }
