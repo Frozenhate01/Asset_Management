@@ -28157,10 +28157,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2778842426049971594, guid: dccc5d8403d7ae34c9f83784088f5d9c,
+        type: 3}
+      propertyPath: jumpVelocity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2778842426049971595, guid: dccc5d8403d7ae34c9f83784088f5d9c,
         type: 3}
       propertyPath: m_Constraints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778842426049971595, guid: dccc5d8403d7ae34c9f83784088f5d9c,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778842426049971595, guid: dccc5d8403d7ae34c9f83784088f5d9c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2778842426049971697, guid: dccc5d8403d7ae34c9f83784088f5d9c,
         type: 3}
@@ -28262,7 +28277,8 @@ PrefabInstance:
       propertyPath: livesRemaining
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2778842426049971594, guid: dccc5d8403d7ae34c9f83784088f5d9c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dccc5d8403d7ae34c9f83784088f5d9c, type: 3}
 --- !u!1001 &4536756553912712332
 PrefabInstance:
