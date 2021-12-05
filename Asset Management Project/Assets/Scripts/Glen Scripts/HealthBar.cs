@@ -23,7 +23,11 @@ public class HealthBar : MonoBehaviour
             Debug.Log("DEAD");
             FindObjectOfType<LifeCount>().LoseLife();
             livesRemaining--;
-            
+            if(livesRemaining > 0)
+            {
+                RevivePlayer();
+                fillBar.fillAmount = health / 100;
+            }
         }
     }
 
@@ -36,9 +40,5 @@ public class HealthBar : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
             LoseHealth(25);
-        if (health == 0 && livesRemaining > 0)
-        {
-            RevivePlayer();
-        }
     }
 }
