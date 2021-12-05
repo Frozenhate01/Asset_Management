@@ -258,10 +258,11 @@ MonoBehaviour:
   maxStateTime: 10
   target: {fileID: 0}
   navWaypoints: []
-  speed: 15
+  speed: 5
   patrol: {fileID: 0}
   attackDelay: 2
   attacking: 0
+  canAttack: 0
   rotateAmount: 10
   enemyDamage: 25
   specialDamage: 0
