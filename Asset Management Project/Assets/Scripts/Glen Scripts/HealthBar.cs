@@ -34,6 +34,7 @@ public class HealthBar : MonoBehaviour
     public void RevivePlayer()
     {
         health = 100;
+        fillBar.fillAmount = health / 100;
     }
 
     private void Update()
