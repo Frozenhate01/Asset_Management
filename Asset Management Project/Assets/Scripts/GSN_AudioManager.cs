@@ -1,17 +1,28 @@
 ﻿using UnityEngine;
 using System;
 using UnityEngine.Audio;
+using UnityEngine.UI;
+
+
 
 public class GSN_AudioManager : MonoBehaviour
 {
-    
+
     public static GSN_AudioManager instance;
+
+    [SerializeField] Image soundOn;
+    [SerializeField] Image soundOff;
+    [SerializeField] Button musicOn;
+    [SerializeField] Button musicOff;
+
 
     public Sound[] soundEffects;
 
     public AudioSource audioSource;
     public AudioClip hoverFx;
     public AudioClip clickFx;
+
+    private bool muted = false;
 
   
        private void Awake()
@@ -40,10 +51,66 @@ public class GSN_AudioManager : MonoBehaviour
 
        private void Start()
        {
-           Play("main menu place holder for music");
+           Play("Theme");
+
+        if(!PlayerPrefs.HasKey("muted"))
+        {
+            PlayerPrefs.SetInt("muted", 0);
+            Load();
+        }
+        else
+        {
+            Load();
+        }
+        //UpdateSound();
+        //AudioListener.pause = muted;
+        
        }
 
-       public void HoverSound()
+    public void OnBbuttonPress()
+    {
+        if (muted == false)
+        {
+            muted = true;
+            AudioListener.pause = true;
+        }
+
+        else
+        {
+            muted = false;
+            AudioListener.pause = false;
+        }
+
+        Save();
+        UpdateSound();
+        
+    }
+
+    private void UpdateSound()
+    {
+        if(muted==false)
+        {
+            soundOn.enabled = true;
+            soundOff.enabled = false;
+        }
+        else
+        {
+            soundOn.enabled = false;
+            soundOff.enabled = true;
+        }
+    }
+
+    private void Load()
+    {
+        muted = PlayerPrefs.GetInt("muted") == 1;
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetInt("muted", muted ? 1 : 0);
+    }
+
+    public void HoverSound()
         {
         audioSource.PlayOneShot(hoverFx);
         }
@@ -52,26 +119,37 @@ public class GSN_AudioManager : MonoBehaviour
         {
         audioSource.PlayOneShot(clickFx);
         }
-        
+
+    
        public void Play (string sound)
        {
            Sound s = Array.Find(soundEffects, item => item.name == sound);
-
-           if ( s == null)
+       // s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+       // s.source.pitch = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        if ( s == null)
            {
                Debug.LogWarning("Sound: " + name + " not found!");
                return;
 
            }
 
-          // s.source.volume = s.volume * (1f + UnityEngine.Random(-s.volumeVariance / 2f, s.volumeVariance / 2f));
-           //s.source.pitch = s.volume * (1f + UnityEngine.Random(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+      
+        if (GSN_Options.GameIsPaused)
+        {
+            s.source.pitch = .5f;
+            
+        }
 
+         
+           // FindObjectOfType<GSN_AudioManager>().Play(" ");
 
 
            s.source.Play();
        }
 
+    
 
-       
+  
+
+
 }
