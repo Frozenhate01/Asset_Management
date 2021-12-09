@@ -21,4 +21,9 @@ public class GSN_MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
     }
+
+    public void SelectLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+    }
 }
