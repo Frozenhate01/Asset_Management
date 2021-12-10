@@ -6,7 +6,7 @@ using TMPro;
 
 public class LifeCount : MonoBehaviour
 {
-    [SerializeField] int livesRemaining;
+    [SerializeField] public static int livesRemaining = 5;
     public TextMeshProUGUI lifeText;
 
     public void LoseLife()
@@ -15,8 +15,6 @@ public class LifeCount : MonoBehaviour
             return;
         
         livesRemaining--;
-
-        lifeText.text = livesRemaining.ToString();
 
         if (livesRemaining == 0)
         {
@@ -29,5 +27,6 @@ public class LifeCount : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
             LoseLife();
+        lifeText.text = livesRemaining.ToString();
     }
 }

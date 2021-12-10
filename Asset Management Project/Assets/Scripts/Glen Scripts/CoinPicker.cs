@@ -5,7 +5,7 @@ using TMPro;
 
 public class CoinPicker : MonoBehaviour
 {
-    private float coin = 0;
+    [SerializeField] public static float coin = 0;
 
     public TextMeshProUGUI textCoins;
 
@@ -14,9 +14,13 @@ public class CoinPicker : MonoBehaviour
         if(collision.transform.tag == "Coin")
         {
             coin = coin + 50;
-            textCoins.text = coin.ToString("0000");
 
             Destroy(collision.gameObject);
         }
+    }
+
+    private void Update()
+    {
+        textCoins.text = coin.ToString("0000");
     }
 }

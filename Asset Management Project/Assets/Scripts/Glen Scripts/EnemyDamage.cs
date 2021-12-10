@@ -9,7 +9,7 @@ public class EnemyDamage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
-            collision.GetComponent<HealthBar>().LoseHealth(damage);
+            GameObject.Find("Player").GetComponent<HealthBar>().health -= damage;
 
         Debug.Log("spiked!");
     }
