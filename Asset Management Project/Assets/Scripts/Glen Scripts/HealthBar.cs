@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] Image fillBar;
-    [SerializeField] float health;
+    [SerializeField] public float health;
     [SerializeField] int livesRemaining;
+    [SerializeField] float value;
 
     public void LoseHealth(float value)
     {

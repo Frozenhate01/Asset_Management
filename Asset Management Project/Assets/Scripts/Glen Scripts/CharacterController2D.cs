@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -19,10 +20,17 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
-	[Header("Events")]
-	[Space]
+	private Vector3 respawnPoint;
 
-	public UnityEvent OnLandEvent;
+	private void Start()
+	{
+		respawnPoint = transform.position;
+	}
+
+	[Header("Events")]
+    [Space]
+
+    public UnityEvent OnLandEvent;
 
 	[System.Serializable]
 	public class BoolEvent : UnityEvent<bool> { }
@@ -144,4 +152,20 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "NextLevel")
+        {
+			GSN_GameManager.Instance.Save();
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			respawnPoint = transform.position;
+        }
+		else if(collision.tag == "PreviousLevel")
+        {
+			GSN_GameManager.Instance.Save();
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+			respawnPoint = transform.position;
+		}
+    }
 }
