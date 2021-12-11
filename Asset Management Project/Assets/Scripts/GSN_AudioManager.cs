@@ -12,8 +12,10 @@ public class GSN_AudioManager : MonoBehaviour
 
     [SerializeField] Image soundOn;
     [SerializeField] Image soundOff;
-    [SerializeField] Button musicOn;
-    [SerializeField] Button musicOff;
+    [SerializeField] Image musicOn;
+    [SerializeField] Image musicOff;
+
+    private float musicVolume = 1f;
 
 
     public Sound[] soundEffects;
@@ -21,6 +23,8 @@ public class GSN_AudioManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip hoverFx;
     public AudioClip clickFx;
+
+
 
     private bool muted = false;
 
@@ -49,9 +53,15 @@ public class GSN_AudioManager : MonoBehaviour
            }
        }
 
-       private void Start()
+    private void Update()
+    {
+        audioSource.volume = musicVolume;
+    }
+
+    private void Start()
        {
-           Play("Theme");
+          // Play("Theme");
+          
 
         if(!PlayerPrefs.HasKey("muted"))
         {
@@ -62,12 +72,38 @@ public class GSN_AudioManager : MonoBehaviour
         {
             Load();
         }
-        //UpdateSound();
-        //AudioListener.pause = muted;
+        UpdateSound();
+        UpdateMusic();
+
+        AudioListener.pause = muted;
         
        }
 
-    public void OnBbuttonPress()
+    public void volumeScroll(float volume)
+    {
+        musicVolume = volume;
+    }
+
+    public void MusicOnBbuttonPress()
+    {
+        if (muted == false)
+        {
+            muted = true;
+            AudioListener.pause = true;
+        }
+
+        else
+        {
+            muted = false;
+            AudioListener.pause = false;
+        }
+
+        Save();
+        UpdateMusic();
+
+    }
+
+    public void SoundOnBbuttonPress()
     {
         if (muted == false)
         {
@@ -98,7 +134,24 @@ public class GSN_AudioManager : MonoBehaviour
             soundOn.enabled = false;
             soundOff.enabled = true;
         }
+
     }
+
+    private void UpdateMusic()
+    {
+        if (muted == false)
+        {
+            musicOn.enabled = true;
+            musicOff.enabled = false;
+        }
+        else
+        {
+            musicOn.enabled = false;
+            musicOff.enabled = true;
+        }
+    }
+
+
 
     private void Load()
     {
