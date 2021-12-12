@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - NextLevel
   - PreviousLevel
+  - 1Up
   layers:
   - Default
   - TransparentFX
