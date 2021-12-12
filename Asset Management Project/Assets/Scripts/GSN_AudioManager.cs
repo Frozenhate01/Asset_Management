@@ -163,7 +163,7 @@ public class GSN_AudioManager : MonoBehaviour
         PlayerPrefs.SetInt("muted", muted ? 1 : 0);
     }
 
-    public void HoverSound()
+        public void HoverSound()
         {
         audioSource.PlayOneShot(hoverFx);
         }
