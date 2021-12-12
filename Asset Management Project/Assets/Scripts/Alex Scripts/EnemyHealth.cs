@@ -8,6 +8,9 @@ public class EnemyHealth : MonoBehaviour
     private BasicEnemy enemyScript;
     private int maxHealth;
     public int currentHealth;
+    private GameObject player;
+    private PlayerAttack playerAttack;
+    public string consumeAbility;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +18,9 @@ public class EnemyHealth : MonoBehaviour
         enemyScript = GetComponentInParent<BasicEnemy>();
         maxHealth = enemyScript.enemyMaxHealth;
         currentHealth = maxHealth;
+        player = GameObject.Find("Player");
+        playerAttack = player.GetComponent<PlayerAttack>();
+        consumeAbility = enemyScript.consumeAbility;
     }
 
     // Update is called once per frame
@@ -23,7 +29,7 @@ public class EnemyHealth : MonoBehaviour
         
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, string attackType)
     {
         if (currentHealth - damage <= 0)
         {

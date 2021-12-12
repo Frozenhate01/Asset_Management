@@ -114,3 +114,6 @@ MonoBehaviour:
     type: 3}
   meleeAttack: {fileID: 914868787190943736, guid: f1ce0b30a76d16b48ab62b3046383029,
     type: 3}
+  superShot: {fileID: 7883505155130143837, guid: 07716f5b84e1307469a08a7c88cd69db,
+    type: 3}
+  consumeAbility: 

@@ -18,7 +18,9 @@ public class PlayerAttack : MonoBehaviour
     public GameObject rightSpawner;
     public GameObject rangedAttack;
     public GameObject meleeAttack;
-
+    public GameObject superShot;
+    public string consumeAbility;
+    private PlayerAttack playerAttack;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,19 @@ public class PlayerAttack : MonoBehaviour
             if (leftFacing == true)
             {
                 GameObject PlayerShot = Instantiate(rangedAttack, leftSpawner.transform.position, gameObject.transform.rotation) as GameObject;
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Mouse1) && consumeAbility == "superShot")
+        {
+            if (rightFacing == true)
+            {
+                GameObject PlayerShot = Instantiate(superShot, rightSpawner.transform.position, gameObject.transform.rotation) as GameObject;
+            }
+
+            if (leftFacing == true)
+            {
+                GameObject PlayerShot = Instantiate(superShot, leftSpawner.transform.position, gameObject.transform.rotation) as GameObject;
             }
         }
 
