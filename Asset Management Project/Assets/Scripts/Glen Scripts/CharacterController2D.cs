@@ -167,5 +167,10 @@ public class CharacterController2D : MonoBehaviour
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 			respawnPoint = transform.position;
 		}
+		else if(collision.tag == "1Up")
+        {
+			FindObjectOfType<LifeCount>().GainLife();
+			Destroy(collision.gameObject);
+		}
     }
 }

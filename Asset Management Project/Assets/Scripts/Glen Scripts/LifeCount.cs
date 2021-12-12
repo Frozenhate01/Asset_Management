@@ -23,6 +23,10 @@ public class LifeCount : MonoBehaviour
         }
     }
 
+    public void GainLife()
+    {
+        livesRemaining++;
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
