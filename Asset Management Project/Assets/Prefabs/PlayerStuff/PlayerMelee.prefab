@@ -128,3 +128,4 @@ MonoBehaviour:
   speed: 0
   damage: 3
   isMelee: 1
+  attackType: consume

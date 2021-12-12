@@ -37,6 +37,7 @@ public class BasicEnemy : MonoBehaviour
     public int enemyMaxHealth; // the enemy's max health that is called in their health script
 
     protected bool attackAnimCD;
+    public string consumeAbility;
 
     // Start is called before the first frame update
     public virtual void Start()

@@ -267,6 +267,7 @@ MonoBehaviour:
   enemyDamage: 25
   specialDamage: 0
   enemyMaxHealth: 10
+  consumeAbility: superShot
 --- !u!114 &-3947566946597918366
 MonoBehaviour:
   m_ObjectHideFlags: 0

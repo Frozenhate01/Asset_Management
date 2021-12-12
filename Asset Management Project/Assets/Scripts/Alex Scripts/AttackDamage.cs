@@ -14,6 +14,7 @@ public class AttackDamage : MonoBehaviour
     static int EnemyLayer = 13;
     private bool hasDamaged;
     public bool isMelee;
+    public string attackType;
 
     // Start is called before the first frame update
 
@@ -63,8 +64,9 @@ public class AttackDamage : MonoBehaviour
                 {
                     playerHealth = GameObject.Find("PlayerHealth").GetComponent<HealthBar>();
                     playerHealth.LoseHealth(-25);
+                    playerAttack.consumeAbility = enemy.consumeAbility;
                 }
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage, attackType);
                 Destroy(gameObject);
             }
         }
