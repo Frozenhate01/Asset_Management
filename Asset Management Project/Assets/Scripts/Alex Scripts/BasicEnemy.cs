@@ -24,6 +24,7 @@ public class BasicEnemy : MonoBehaviour
     private GameObject currentWaypoint;
     private GameObject nextWaypoint;
     private bool pzSet = false;
+    public bool isFlying;
 
 
     public int attackDelay; // the value set in the inspector.
