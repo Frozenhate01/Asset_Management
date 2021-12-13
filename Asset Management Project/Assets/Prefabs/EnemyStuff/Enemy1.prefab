@@ -106,6 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b179744f7e45e746ab090d28c397976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: {fileID: 0}
+  attackPoint: {fileID: 0}
+  hasAttacked: 0
+  attackDelay: 0
 --- !u!1 &5269772827292156156
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +174,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b148a6ab25e42ff489c1a21adc79b15c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -260,6 +264,7 @@ MonoBehaviour:
   navWaypoints: []
   speed: 5
   patrol: {fileID: 0}
+  isFlying: 0
   attackDelay: 2
   attacking: 0
   canAttack: 0
@@ -281,3 +286,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  consumeAbility: 
