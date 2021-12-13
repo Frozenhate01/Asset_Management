@@ -47,16 +47,23 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Mouse1) && consumeAbility == "superShot")
+        if(Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if (rightFacing == true)
+            if(consumeAbility == "superShot")
             {
-                GameObject PlayerShot = Instantiate(superShot, rightSpawner.transform.position, gameObject.transform.rotation) as GameObject;
-            }
+                if (rightFacing == true)
+                {
+                    GameObject PlayerShot = Instantiate(superShot, rightSpawner.transform.position, gameObject.transform.rotation) as GameObject;
+                }
 
-            if (leftFacing == true)
+                if (leftFacing == true)
+                {
+                    GameObject PlayerShot = Instantiate(superShot, leftSpawner.transform.position, gameObject.transform.rotation) as GameObject;
+                }
+            }
+            if(consumeAbility == "superJump")
             {
-                GameObject PlayerShot = Instantiate(superShot, leftSpawner.transform.position, gameObject.transform.rotation) as GameObject;
+                player.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x, 10f);
             }
         }
 
