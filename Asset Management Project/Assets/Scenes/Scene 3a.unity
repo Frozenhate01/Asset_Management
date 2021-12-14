@@ -324,7 +324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &15913928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32168,6 +32168,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Offset.y
       value: -0.002320528
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778842426049971593, guid: dccc5d8403d7ae34c9f83784088f5d9c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664,
+        type: 3}
+    - target: {fileID: 2778842426049971593, guid: dccc5d8403d7ae34c9f83784088f5d9c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778842426049971593, guid: dccc5d8403d7ae34c9f83784088f5d9c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778842426049971593, guid: dccc5d8403d7ae34c9f83784088f5d9c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2778842426049971593, guid: dccc5d8403d7ae34c9f83784088f5d9c,
         type: 3}
