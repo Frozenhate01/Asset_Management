@@ -83,7 +83,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     playerHealth.damageable = false;
                     playerHealth.invulnCount = playerHealth.invulnTimer;
-                    playerrb.AddForce(gameObject.transform.right * 20, ForceMode2D.Impulse);
+                    playerrb.AddForce(gameObject.transform.right * 50, ForceMode2D.Impulse);
                     playerEnergy.currentEnergy -= dashCost;
                 }
 
@@ -91,7 +91,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     playerHealth.damageable = false;
                     playerHealth.invulnCount = playerHealth.invulnTimer;
-                    playerrb.AddForce(gameObject.transform.right * 20 * -1,  ForceMode2D.Impulse);
+                    playerrb.AddForce(gameObject.transform.right * 50 * -1,  ForceMode2D.Impulse);
                     playerEnergy.currentEnergy -= dashCost;
                 }
             }
