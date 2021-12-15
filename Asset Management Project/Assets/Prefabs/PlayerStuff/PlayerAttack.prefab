@@ -117,3 +117,6 @@ MonoBehaviour:
   superShot: {fileID: 7883505155130143837, guid: 07716f5b84e1307469a08a7c88cd69db,
     type: 3}
   consumeAbility: 
+  dashCost: 2
+  superShotCost: 2
+  superJumpCost: 3
