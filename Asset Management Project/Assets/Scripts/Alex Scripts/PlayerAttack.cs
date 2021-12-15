@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject superShot;
     public string consumeAbility;
     private PlayerAttack playerAttack;
-    private Rigidbody2D playerrb;
+    public Rigidbody2D playerrb;
     private HealthBar playerHealth;
     private PlayerEnergy playerEnergy;
     public int dashCost;
@@ -33,7 +33,7 @@ public class PlayerAttack : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerrb = player.GetComponent<Rigidbody2D>();
-        playerHealth = player.GetComponent<HealthBar>();
+        playerHealth = player.GetComponentInChildren<HealthBar>();
         playerEnergy = player.GetComponent<PlayerEnergy>();
     }
 
@@ -83,7 +83,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     playerHealth.damageable = false;
                     playerHealth.invulnCount = playerHealth.invulnTimer;
-                    playerrb.AddForce(playerrb.transform.right * 20, ForceMode2D.Impulse);
+                    playerrb.AddForce(gameObject.transform.right * 20, ForceMode2D.Impulse);
                     playerEnergy.currentEnergy -= dashCost;
                 }
 
@@ -91,7 +91,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     playerHealth.damageable = false;
                     playerHealth.invulnCount = playerHealth.invulnTimer;
-                    playerrb.AddForce(playerrb.transform.right * 20 * -1,  ForceMode2D.Impulse);
+                    playerrb.AddForce(gameObject.transform.right * 20 * -1,  ForceMode2D.Impulse);
                     playerEnergy.currentEnergy -= dashCost;
                 }
             }

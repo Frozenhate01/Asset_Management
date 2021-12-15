@@ -299,7 +299,7 @@ MonoBehaviour:
   livesRemaining: 0
   value: 0
   damageable: 1
-  invulnTimer: 0
+  invulnTimer: 3
   invulnCount: 0
 --- !u!65 &3572072460858862898
 BoxCollider:
