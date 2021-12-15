@@ -15,12 +15,14 @@ public class AttackDamage : MonoBehaviour
     private bool hasDamaged;
     public bool isMelee;
     public string attackType;
+    private PlayerEnergy playerEnergy;
 
     // Start is called before the first frame update
 
     private void Awake()
     {
         playerAttack = GameObject.Find("PlayerAttack").GetComponent<PlayerAttack>();
+        playerEnergy = GameObject.Find("Player").GetComponent<PlayerEnergy>();
         projectileRb = GetComponent<Rigidbody>();
     }
 
@@ -65,6 +67,7 @@ public class AttackDamage : MonoBehaviour
                     playerHealth = GameObject.Find("PlayerHealth").GetComponent<HealthBar>();
                     playerHealth.LoseHealth(-25);
                     playerAttack.consumeAbility = enemy.consumeAbility;
+                    playerEnergy.currentEnergy = playerEnergy.maxEnergy;
                 }
                 enemy.TakeDamage(damage, attackType);
                 Destroy(gameObject);
