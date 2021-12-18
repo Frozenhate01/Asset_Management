@@ -9,6 +9,7 @@ TagManager:
   - NextLevel
   - PreviousLevel
   - 1Up
+  - FinishGame
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class GameOverScreen : MonoBehaviour
+public class WinScreen : MonoBehaviour
 {
 
     public TextMeshProUGUI textPoints;
@@ -13,7 +13,6 @@ public class GameOverScreen : MonoBehaviour
     {
         gameObject.SetActive(true);
         textPoints.text = score.ToString() + " POINTS";
-        Time.timeScale = 0f;
     }
 
     public void RestartButton()
