@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerEnergy : MonoBehaviour
 {
-
     public int maxEnergy;
     public int currentEnergy;
 
@@ -18,7 +18,7 @@ public class PlayerEnergy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void EnergyRegen()

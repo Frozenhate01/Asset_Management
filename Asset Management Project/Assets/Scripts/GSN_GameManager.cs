@@ -7,6 +7,7 @@ using TMPro;
 public class GSN_GameManager : MonoBehaviour
 {
     public GameOverScreen GameOverScreen;
+    public WinScreen WinScreen;
 
     private static GSN_GameManager instance;
     public static GSN_GameManager Instance { get { return instance; } }
@@ -38,10 +39,21 @@ public class GSN_GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Lives", lives);
     }
 
+    //public void Delete()
+    //{
+        //score = 0;
+        //PlayerPrefs.SetFloat("Score", score);
+    //}
+
 
     public void GameOver()
     {
         GameOverScreen.Setup(score);
+    }
+
+    public void Win()
+    {
+        WinScreen.Setup(score);
     }
 
     public void Restart()
