@@ -7,18 +7,17 @@ public class EnergyBar : MonoBehaviour
 {
     [SerializeField] Image fillBar;
 
-    PlayerEnergy playerEnergy;
+    public PlayerEnergy playerEnergy;
 
     private void Awake()
     {
-        fillBar = transform.Find("Fill").GetComponent<Image>();
-
-        playerEnergy = new PlayerEnergy();
+        playerEnergy = GameObject.Find("Player").GetComponent<PlayerEnergy>();
     }
 
     private void Update()
     {
-
+        fillBar.fillAmount = playerEnergy.currentEnergy / 10;
+        Debug.Log(playerEnergy.currentEnergy / 10);
     }
 
 }

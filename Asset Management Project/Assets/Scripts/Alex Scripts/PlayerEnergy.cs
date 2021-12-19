@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerEnergy : MonoBehaviour
 {
-    public int maxEnergy;
-    public int currentEnergy;
+    public float maxEnergy;
+    public float currentEnergy;
 
     // Start is called before the first frame update
     void Start()
