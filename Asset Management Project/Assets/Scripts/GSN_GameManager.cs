@@ -59,6 +59,7 @@ public class GSN_GameManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+       // FindObjectOfType<GSN_AudioManager>().("GameOver");
     }
 
     public void Update()

@@ -159,14 +159,18 @@ public class GSN_AudioManager : MonoBehaviour
             
         }
 
-        
-
            s.source.Play();
        }
 
-    
-
+  /*  public void Stop(string sound)
+    {
+        Sound s = Array.Find(soundEffects, item => item.name == sound);
+        
   
+    }
+  */
+
+
 
 
 }

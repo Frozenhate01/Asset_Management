@@ -19,7 +19,8 @@ public class LifeCount : MonoBehaviour
         if (livesRemaining == 0)
         {
             Debug.Log("LOSER");
-            FindObjectOfType<GSN_AudioManager>().Play("");
+
+            FindObjectOfType<GSN_AudioManager>().Play("GameOver");
             FindObjectOfType<GSN_GameManager>().GameOver();
         }
     }
