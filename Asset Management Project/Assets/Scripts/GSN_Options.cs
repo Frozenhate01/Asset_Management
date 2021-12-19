@@ -48,8 +48,6 @@ public class GSN_Options : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-
-      
     }
 
     public void LoadMenu()
