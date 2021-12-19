@@ -22,6 +22,9 @@ public class CharacterController2D : MonoBehaviour
 
 	private Vector3 respawnPoint;
 
+	public GameObject completeLevelUI;
+	WinScreen WinScreen;
+
 	private void Start()
 	{
 		respawnPoint = transform.position;
@@ -166,6 +169,12 @@ public class CharacterController2D : MonoBehaviour
 			GSN_GameManager.Instance.Save();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 			respawnPoint = transform.position;
+		}
+		else if(collision.tag == "FinishGame")
+        {
+			GSN_GameManager.Instance.Save();
+			completeLevelUI.SetActive(true);
+			//FindObjectOfType<GSN_GameManager>().Win();
 		}
 		else if(collision.tag == "1Up")
         {

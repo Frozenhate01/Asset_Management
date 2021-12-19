@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2778842426049971701}
   - component: {fileID: 2778842426049971700}
   - component: {fileID: 905598512309279934}
+  - component: {fileID: 314832820294823851}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -178,7 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d091cadc9200a468aa2de64feb5c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livesRemaining: 5
   lifeText: {fileID: 0}
 --- !u!61 &905598512309279934
 BoxCollider2D:
@@ -206,6 +206,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5086932, y: 0.49675715}
   m_EdgeRadius: 0
+--- !u!114 &314832820294823851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2778842426049971697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b038797897139a14d8ce75391a3a4855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnergy: 10
+  currentEnergy: 0
 --- !u!1 &6574276129626727854
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +297,10 @@ MonoBehaviour:
   fillBar: {fileID: 0}
   health: 100
   livesRemaining: 0
+  value: 0
+  damageable: 1
+  invulnTimer: 3
+  invulnCount: 0
 --- !u!65 &3572072460858862898
 BoxCollider:
   m_ObjectHideFlags: 0

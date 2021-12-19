@@ -9,25 +9,36 @@ public class HealthBar : MonoBehaviour
     [SerializeField] public float health;
     [SerializeField] int livesRemaining;
     [SerializeField] float value;
+    public bool damageable = true;
+    public int invulnTimer;
+    public int invulnCount;
 
+
+    public void Start()
+    {
+        InvokeRepeating("Invulnerability", 1f, 1f);
+    }
     public void LoseHealth(float value)
     {
-        if (health <= 0)
-            return;
-        
-        health -= value;
-
-        fillBar.fillAmount = health / 100;
-
-        if(health <=0)
+        if(damageable)
         {
-            Debug.Log("DEAD");
-            FindObjectOfType<LifeCount>().LoseLife();
-            livesRemaining--;
-            if(livesRemaining > 0)
+            if (health <= 0)
+                return;
+
+            health -= value;
+
+            fillBar.fillAmount = health / 100;
+
+            if (health <= 0)
             {
-                RevivePlayer();
-                fillBar.fillAmount = health / 100;
+                Debug.Log("DEAD");
+                FindObjectOfType<LifeCount>().LoseLife();
+                livesRemaining--;
+                if (livesRemaining > 0)
+                {
+                    RevivePlayer();
+                    fillBar.fillAmount = health / 100;
+                }
             }
         }
     }
@@ -42,5 +53,18 @@ public class HealthBar : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
             LoseHealth(25);
+    }
+
+    public void Invulnerability()
+    {
+        if(damageable == false)
+        {
+            invulnCount--;
+        }
+
+        if(invulnCount <= 0)
+        {
+            damageable = true;
+        }
     }
 }
