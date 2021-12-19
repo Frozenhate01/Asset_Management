@@ -32,6 +32,7 @@ public class HealthBar : MonoBehaviour
             if (health <= 0)
             {
                 Debug.Log("DEAD");
+                FindObjectOfType<GSN_AudioManager>().Play("LifeLost");
                 FindObjectOfType<LifeCount>().LoseLife();
                 livesRemaining--;
                 if (livesRemaining > 0)

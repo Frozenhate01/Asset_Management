@@ -10,11 +10,6 @@ public class GSN_AudioManager : MonoBehaviour
 
     public static GSN_AudioManager instance;
 
-    [SerializeField] Image soundOn;
-    [SerializeField] Image soundOff;
-    [SerializeField] Image musicOn;
-    [SerializeField] Image musicOff;
-
     private float musicVolume = 1f;
 
 
@@ -72,8 +67,6 @@ public class GSN_AudioManager : MonoBehaviour
         {
             Load();
         }
-        UpdateSound();
-        UpdateMusic();
 
         AudioListener.pause = muted;
         
@@ -99,7 +92,6 @@ public class GSN_AudioManager : MonoBehaviour
         }
 
         Save();
-        UpdateMusic();
 
     }
 
@@ -118,38 +110,12 @@ public class GSN_AudioManager : MonoBehaviour
         }
 
         Save();
-        UpdateSound();
         
     }
 
-    private void UpdateSound()
-    {
-        if(muted==false)
-        {
-            soundOn.enabled = true;
-            soundOff.enabled = false;
-        }
-        else
-        {
-            soundOn.enabled = false;
-            soundOff.enabled = true;
-        }
+ 
 
-    }
 
-    private void UpdateMusic()
-    {
-        if (muted == false)
-        {
-            musicOn.enabled = true;
-            musicOff.enabled = false;
-        }
-        else
-        {
-            musicOn.enabled = false;
-            musicOff.enabled = true;
-        }
-    }
 
 
 
@@ -177,8 +143,8 @@ public class GSN_AudioManager : MonoBehaviour
        public void Play (string sound)
        {
            Sound s = Array.Find(soundEffects, item => item.name == sound);
-       // s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
-       // s.source.pitch = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        s.source.volume = s.volume;
+       s.source.pitch = s.volume;
         if ( s == null)
            {
                Debug.LogWarning("Sound: " + name + " not found!");
@@ -193,16 +159,18 @@ public class GSN_AudioManager : MonoBehaviour
             
         }
 
-         
-           // FindObjectOfType<GSN_AudioManager>().Play(" ");
-
-
            s.source.Play();
        }
 
-    
-
+  /*  public void Stop(string sound)
+    {
+        Sound s = Array.Find(soundEffects, item => item.name == sound);
+        
   
+    }
+  */
+
+
 
 
 }

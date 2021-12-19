@@ -13,9 +13,11 @@ public class CoinPicker : MonoBehaviour
     {
         if(collision.transform.tag == "Coin")
         {
+            FindObjectOfType<GSN_AudioManager>().Play("Coin");
             coin = coin + 50;
-
+            
             Destroy(collision.gameObject);
+
         }
     }
 
