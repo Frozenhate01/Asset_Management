@@ -138,8 +138,10 @@ public class CharacterController2D : MonoBehaviour
 		// If the player should jump...
 		if (m_Grounded && jump)
 		{
+			FindObjectOfType<GSN_AudioManager>().Play("Jump");
 			// Add a vertical force to the player.
 			m_Grounded = false;
+			
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}
 	}
@@ -160,6 +162,7 @@ public class CharacterController2D : MonoBehaviour
     {
         if(collision.tag == "NextLevel")
         {
+			FindObjectOfType<GSN_AudioManager>().Play("LevelComplete");
 			GSN_GameManager.Instance.Save();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 			respawnPoint = transform.position;

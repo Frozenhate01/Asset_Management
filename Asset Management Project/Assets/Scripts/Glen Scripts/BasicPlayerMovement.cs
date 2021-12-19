@@ -20,6 +20,7 @@ public class BasicPlayerMovement : MonoBehaviour
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
         if (Input.GetKey(KeyCode.Space))
+            FindObjectOfType<GSN_AudioManager>().Play("Jump");
             body.velocity = new Vector2(body.velocity.x, jumpVelocity);
     }
 }

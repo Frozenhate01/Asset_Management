@@ -249,6 +249,7 @@ public class BasicEnemy : MonoBehaviour
     {
         if (canAttack == true)
         {   // do normal attack
+            FindObjectOfType<GSN_AudioManager>().Play("EnemyAttack");
             attacking = true;
             attackAnimCD = true;
             attackCD = attackDelay;

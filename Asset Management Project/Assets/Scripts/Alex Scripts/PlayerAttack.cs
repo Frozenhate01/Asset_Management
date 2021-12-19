@@ -47,11 +47,13 @@ public class PlayerAttack : MonoBehaviour
         {
             if (rightFacing == true)
             {
+                FindObjectOfType<GSN_AudioManager>().Play("Shoot");
                 GameObject PlayerShot = Instantiate(rangedAttack, rightSpawner.transform.position, gameObject.transform.rotation) as GameObject;
             }
 
             if (leftFacing == true)
             {
+                FindObjectOfType<GSN_AudioManager>().Play("Shoot");
                 GameObject PlayerShot = Instantiate(rangedAttack, leftSpawner.transform.position, gameObject.transform.rotation) as GameObject;
             }
         }
@@ -62,12 +64,14 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (rightFacing == true)
                 {
+                    FindObjectOfType<GSN_AudioManager>().Play("SuperShoot");
                     GameObject PlayerShot = Instantiate(superShot, rightSpawner.transform.position, gameObject.transform.rotation) as GameObject;
                     playerEnergy.currentEnergy -= superShotCost;
                 }
 
                 if (leftFacing == true)
                 {
+                    FindObjectOfType<GSN_AudioManager>().Play("SuperShoot");
                     GameObject PlayerShot = Instantiate(superShot, leftSpawner.transform.position, gameObject.transform.rotation) as GameObject;
                     playerEnergy.currentEnergy -= superShotCost;
                 }
