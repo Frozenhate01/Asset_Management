@@ -105,11 +105,13 @@ public class PlayerAttack : MonoBehaviour
         {
             if (rightFacing == true)
             {
+                FindObjectOfType<GSN_AudioManager>().Play("Energy");
                 GameObject PlayerHit = Instantiate(meleeAttack, rightSpawner.transform.position, gameObject.transform.rotation) as GameObject;
             }
 
             if (leftFacing == true)
             {
+                FindObjectOfType<GSN_AudioManager>().Play("Energy");
                 GameObject PlayerHit = Instantiate(meleeAttack, leftSpawner.transform.position, gameObject.transform.rotation) as GameObject;
             }
         }

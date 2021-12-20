@@ -5,12 +5,8 @@ using UnityEngine.Audio;
 
 public class GSN_Options : MonoBehaviour
 {
- 
-
     public static bool GameIsPaused = false;
-
     public GameObject pauseMenuUI;
-
 
 
     void Start()

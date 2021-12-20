@@ -2476,7 +2476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -355.5, y: -287.1}
+  m_AnchoredPosition: {x: 0, y: -191}
   m_SizeDelta: {x: 208.97916, y: 128.25388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384931459
@@ -3261,7 +3261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284, y: 68}
+  m_AnchoredPosition: {x: -130, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &446897052
@@ -4623,10 +4623,10 @@ RectTransform:
   m_Father: {fileID: 1589010090}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 726.90015, y: -338.84967}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &660181036
 MonoBehaviour:
@@ -5421,7 +5421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &766538254
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5858,7 +5858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &817756093
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6521,7 +6521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1019068645
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9234,7 +9234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1380327520
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9358,7 +9358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 476, y: 79}
+  m_AnchoredPosition: {x: 158, y: 0}
   m_SizeDelta: {x: 48.833923, y: 41.717834}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &1405743541
@@ -13726,7 +13726,7 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
   - name: SuperShoot
-    clip: {fileID: 8300000, guid: 7bb77addc1c799648b8c7bfd09aa71af, type: 3}
+    clip: {fileID: 8300000, guid: d4844689c0701da4b988125cd77d7dbb, type: 3}
     volume: 1
     pitch: 0
     source: {fileID: 0}
@@ -13738,7 +13738,7 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
   - name: AllLivesLost
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 0c85d5a09b6133440a717a37740805d7, type: 3}
     volume: 1
     pitch: 0
     source: {fileID: 0}
@@ -13761,31 +13761,13 @@ MonoBehaviour:
     pitch: 0
     source: {fileID: 0}
     loop: 0
-  - name: GameOver
-    clip: {fileID: 0}
+  - name: Energy
+    clip: {fileID: 8300000, guid: 7bb77addc1c799648b8c7bfd09aa71af, type: 3}
     volume: 1
     pitch: 0
     source: {fileID: 0}
     loop: 0
   - name: Theme
-    clip: {fileID: 8300000, guid: ef7275b998e60b6479bc8b94b72b28e9, type: 3}
-    volume: 1
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-  - name: GameOver
-    clip: {fileID: 8300000, guid: ef7275b998e60b6479bc8b94b72b28e9, type: 3}
-    volume: 1
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-  - name: GameOver
-    clip: {fileID: 8300000, guid: ef7275b998e60b6479bc8b94b72b28e9, type: 3}
-    volume: 1
-    pitch: 0
-    source: {fileID: 0}
-    loop: 0
-  - name: GameOver
     clip: {fileID: 8300000, guid: ef7275b998e60b6479bc8b94b72b28e9, type: 3}
     volume: 1
     pitch: 0
