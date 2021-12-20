@@ -7,7 +7,15 @@ using UnityEngine.UI;
 
 public class GSN_AudioManager : MonoBehaviour
 {
+    private static readonly string firstPlay = "First Play";
+    private static readonly string backgroundPref = "backgroundPref";
+    private static readonly string soundEffectsPref = "soundEffectsPref";
 
+
+    private int firstPlayInt;
+    public Slider backgroundSlider, soundEffectsSlider;
+    private float backgroundFloat, soundEffectsFloat;
+    public AudioSource backgroundAudio;
     public static GSN_AudioManager instance;
 
     private float musicVolume = 1f;
@@ -55,10 +63,30 @@ public class GSN_AudioManager : MonoBehaviour
 
     private void Start()
        {
-          // Play("Theme");
-          
+        //Play("Theme");
 
-        if(!PlayerPrefs.HasKey("muted"))
+        firstPlayInt = PlayerPrefs.GetInt(firstPlay);
+
+        if (firstPlayInt == 0)
+        {
+            backgroundFloat = 1.25f;
+            soundEffectsFloat = .75f;
+            backgroundSlider.value = backgroundFloat;
+            soundEffectsSlider.value = soundEffectsFloat;
+            PlayerPrefs.SetFloat(backgroundPref, backgroundFloat);
+            PlayerPrefs.SetFloat(soundEffectsPref, soundEffectsFloat);
+            PlayerPrefs.SetInt(firstPlay, -1);
+        }
+        else
+        {
+            backgroundFloat = PlayerPrefs.GetFloat(backgroundPref);
+            backgroundSlider.value = backgroundFloat;
+            soundEffectsFloat = PlayerPrefs.GetFloat(soundEffectsPref);
+            soundEffectsSlider.value = soundEffectsFloat;
+        }
+
+
+        if (!PlayerPrefs.HasKey("muted"))
         {
             PlayerPrefs.SetInt("muted", 0);
             Load();
@@ -113,11 +141,30 @@ public class GSN_AudioManager : MonoBehaviour
         
     }
 
- 
 
+    public void UpdateSound()
+    {
+        backgroundAudio.volume = backgroundSlider.value;
 
+        for (int i = 0; i < soundEffects.Length; i++)
+        {
+            soundEffects[i].volume = soundEffectsSlider.value;
+        }
+    }
 
+    public void SaveSoundSettings()
+    {
+        PlayerPrefs.SetFloat(backgroundPref, backgroundSlider.value);
+        PlayerPrefs.SetFloat(soundEffectsPref, soundEffectsSlider.value);
+    }
 
+    private void OnApplicationFocus(bool infocus)
+    {
+        if (!infocus)
+        {
+            SaveSoundSettings();
+        }
+    }
 
     private void Load()
     {

@@ -12,6 +12,8 @@ public class GSN_AudioManager2 : MonoBehaviour
     private int firstPlayInt;
     public Slider backgroundSlider, soundEffectsSlider;
     private float backgroundFloat, soundEffectsFloat;
+
+
     public AudioSource backgroundAudio;
     public AudioSource[] soundEffectsAudio;
     public AudioClip hoverFx;
@@ -34,6 +36,8 @@ public class GSN_AudioManager2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
         firstPlayInt = PlayerPrefs.GetInt(firstPlay);
 
         if(firstPlayInt == 0)

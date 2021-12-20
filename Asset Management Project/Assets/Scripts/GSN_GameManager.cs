@@ -18,6 +18,7 @@ public class GSN_GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        //FindObjectOfType<GSN_AudioManager>().Play("PlayTheme");
 
         if (PlayerPrefs.HasKey("Score"))
         {
@@ -64,6 +65,8 @@ public class GSN_GameManager : MonoBehaviour
 
     public void Update()
     {
+
+        
         score = CoinPicker.coin;
         lives = LifeCount.livesRemaining;
     }
